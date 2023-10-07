@@ -1,0 +1,15 @@
+.company-panel {
+  border-width: 2px;
+  border-color: black;
+  border-style: solid;
+  color: black;
+
+}
+
+.company-panel:hover {
+  color: blue;
+}
+
+.CompanyPanel-link {
+  text-decoration: none;
+}
