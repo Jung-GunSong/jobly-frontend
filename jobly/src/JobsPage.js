@@ -4,6 +4,7 @@ import { useState } from "react";
 import JoblyApi from "./api";
 import { useEffect } from "react";
 import Loading from "./Loading";
+import "./JobPage.css"
 /**
  * Renders page of Job components
  *
@@ -29,14 +30,20 @@ function JobsPage() {
   }, []);
 
   return (
-    <>
-      <h1>Jobs Page!</h1>
+    <div>
+      <h1>Currently Available Jobs</h1>
       <SearchBar searchFunc={searchJobs} />
-      {!currJobs.isLoading
-        ? currJobs.jobs.map(job =>
-          <JobPanel key={job.id} job={job} />)
-        : <Loading />}
-    </>);
+      <div className="mt-2 row">
+        <div className="col-3"></div>
+        <div className="col-6">
+          {!currJobs.isLoading
+            ? currJobs.jobs.map(job =>
+              <JobPanel key={job.id} job={job} />)
+            : <Loading />}
+        </div>
+        <div className="col-3"></div>
+      </div>
+    </div>);
 }
 
 export default JobsPage;

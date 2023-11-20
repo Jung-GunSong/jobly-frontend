@@ -12,7 +12,7 @@ import "./JobPanel.css";
 function JobPanel({ job }) {
 
   return (
-    <div className="job-panel">
+    <div className="job-panel mb-3 p-2">
       <h2>{job.title}</h2>
       {job.companyName && <h3>{job.companyName}</h3>}
       <p>Salary: {job.salary}</p>
