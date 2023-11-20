@@ -31,12 +31,18 @@ function CompaniesPage() {
 
   return (
     <>
-      <h1>Companies Page!</h1>
+      <h1>Companies</h1>
       <SearchBar searchFunc={searchCompanies} />
-      {!currCompanies.isLoading
-        ? currCompanies.companies.map(company =>
-          <CompanyPanel key={company.handle} company={company} />)
-        : <Loading />}
+      <div className="row">
+        <div className="col-3"></div>
+        <div className="col-6">
+          {!currCompanies.isLoading
+            ? currCompanies.companies.map(company =>
+              <CompanyPanel key={company.handle} company={company} />)
+            : <Loading />}
+        </div>
+        <div className="col-3"></div>
+      </div>
     </>);
 }
 
