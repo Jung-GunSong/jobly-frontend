@@ -32,14 +32,17 @@ function SearchBar({ searchFunc }) {
   }
 
   return (
-    <div>
-      <form onSubmit={handleClick}>
+    <div className=" row">
+      <div className="col"></div>
+      <form onSubmit={handleClick} className="col">
         <input onChange={handleChange}
           name="search"
-          value={searchTerm}>
+          value={searchTerm}
+          className="form-control">
         </input>
-        <button className="btn btn-primary" >Submit</button>
+        <button className="btn btn-primary mt-2" >Submit</button>
       </form>
+      <div className="col"></div>
     </div>
 
   );

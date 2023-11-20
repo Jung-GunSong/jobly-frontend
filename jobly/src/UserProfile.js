@@ -62,33 +62,58 @@ function UserProfile({ user, patchUser }) {
   return (
     <div className="UserProfile-container">
       <h1>Edit Profile</h1>
-      <form className="UserProfile" onSubmit={handleSubmit}>
-        username:
-        <input
-          name="username"
-          value={profileData.username}
-          disabled
-        />
-        first name:
-        <input
-          name="firstName"
-          value={profileData.firstName}
-          onChange={handleChange}
-        />
-        last name:
-        <input
-          name="lastName"
-          value={profileData.lastName}
-          onChange={handleChange}
-        />
-        email:
-        <input
-          name="email"
-          value={profileData.email}
-          onChange={handleChange}
-        />
-        <button className="btn btn-primary">Submit</button>
-      </form>
+      <div className="row">
+        <div className="col"></div>
+        <form className="UserProfile col" onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">
+              Username:
+            </label>
+            <input
+              name="username"
+              value={profileData.username}
+              disabled
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              First Name:
+            </label>
+            <input
+              name="firstName"
+              value={profileData.firstName}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Last Name:
+            </label>
+            <input
+              name="lastName"
+              value={profileData.lastName}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+            <label className="form-label">
+              Email:
+            </label>
+            <input
+              name="email"
+              value={profileData.email}
+              onChange={handleChange}
+              className="form-control"
+              type="email"
+            />
+          </div>
+          <button className="btn btn-primary">Submit</button>
+        </form>
+        <div className="col"></div>
+      </div>
       {success && <p>Information successfully updated!</p>}
       {errors && <ErrorMessage errorMessages={errors} />}
     </div>

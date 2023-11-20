@@ -50,40 +50,70 @@ function SignUp({ registerUser }) {
 
   return (
     <div className="SignUp-container">
-      <h1>Sign Up</h1>
-      <form className="SignUp" onSubmit={handleSubmit}>
-        username:
-        <input
-          name="username"
-          value={signUpData.username}
-          onChange={handleChange}
-        />
-        password:
-        <input
-          name="password"
-          value={signUpData.password}
-          onChange={handleChange}
-        />
-        first name:
-        <input
-          name="firstName"
-          value={signUpData.firstName}
-          onChange={handleChange}
-        />
-        last name:
-        <input
-          name="lastName"
-          value={signUpData.lastName}
-          onChange={handleChange}
-        />
-        email:
-        <input
-          name="email"
-          value={signUpData.email}
-          onChange={handleChange}
-        />
-        <button className="btn btn-primary">Submit</button>
-      </form>
+      <h1 className="mb-2">Sign Up</h1>
+      <div className="row">
+        <div className="col"></div>
+        <form className="SignUp w-25 col" onSubmit={handleSubmit}>
+
+
+            <div className="mb-3">
+              <label className="form-label"
+              >Username:</label>
+              <input
+                name="username"
+                value={signUpData.username}
+                onChange={handleChange}
+                className="form-control"
+                id="usernameInput"
+              />
+            </div>
+
+          <div className="mb-3">
+          <label className="form-label"
+              >Password:</label>
+            <input
+              name="password"
+              value={signUpData.password}
+              onChange={handleChange}
+              className="form-control"
+              type="password"
+            />
+          </div>
+          <div className="mb-3">
+          <label className="form-label"
+              >First Name:</label>
+            <input
+              name="firstName"
+              value={signUpData.firstName}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+          <label className="form-label"
+              >Last Name:</label>
+            <input
+              name="lastName"
+              value={signUpData.lastName}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </div>
+          <div className="mb-3">
+          <label className="form-label"
+              >Email:</label>
+            <input
+              name="email"
+              value={signUpData.email}
+              onChange={handleChange}
+              className="form-control"
+              type="email"
+            />
+          </div>
+          <button className="btn btn-primary mt-3">Submit</button>
+        </form>
+        <div className="col"></div>
+      </div>
       {errors && <ErrorMessage errorMessages={errors} />}
     </div>
   );
