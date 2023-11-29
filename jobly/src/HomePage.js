@@ -9,7 +9,7 @@ import { useContext } from "react";
  */
 function HomePage() {
 
-  const { username } = useContext(userContext);
+  const {username}  = useContext(userContext);
 
   return (
     <div className="HomePage-container mt-5">
@@ -17,10 +17,10 @@ function HomePage() {
       {!username ?
         <div className="mt-5" >
           <Link to="/login">
-            <button className="btn btn-primary me-5">Login</button>
+            <button className="btn btn-primary me-5 login">Login</button>
           </Link>
           <Link to="/signup">
-            <button className="btn btn-primary ml-5">Sign Up</button>
+            <button className="btn btn-primary ml-5 signup">Sign Up</button>
           </Link>
         </div> :
         <h1>Welcome back {username}!</h1>}
