@@ -31,7 +31,7 @@ function RouteList({ registerUser, loginUser, user, patchUser }) {
               element={<SignUp registerUser={registerUser} />} />
           </>}
 
-        <Route path="/" element={<HomePage />} />
+        <Route path="/" element={<HomePage user={user} />} />
 
         {user &&
           <>
