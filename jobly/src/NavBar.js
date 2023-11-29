@@ -21,7 +21,7 @@ function NavBar({ user, logOutUser }) {
 
   return (
     <div className="NavBar navbar">
-      <NavLink to="/" >Jobly</NavLink>
+      <NavLink className="homepage" to="/" >Jobly</NavLink>
       {!user ?
         <>
           <NavLink to="/login"  >Login</NavLink>
