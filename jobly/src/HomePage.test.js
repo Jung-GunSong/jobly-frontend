@@ -37,7 +37,7 @@ describe("HomePage", function () {
 
   it("pressing login button takes user to login page", function () {
 
-    const { container } = render(
+    render(
     <BrowserRouter>
       <userContext.Provider value= {{username: null}}>
         <RouteList>
@@ -46,7 +46,7 @@ describe("HomePage", function () {
     </BrowserRouter>
     );
 
-   fireEvent.click(container.querySelector(".login"));
+   fireEvent.click(screen.getByText("Login"));
 
    expect(screen.getByText("Log In")).toBeInTheDocument();
    expect(screen.getByText("Username:")).toBeInTheDocument();
@@ -56,7 +56,7 @@ describe("HomePage", function () {
 
   it("pressing sign up button takes user to sign up page", function () {
 
-    const { container } = render(
+    render(
     <BrowserRouter>
       <userContext.Provider value= {{username: null}}>
         <NavBar />
@@ -66,8 +66,8 @@ describe("HomePage", function () {
     </BrowserRouter>
     );
 
-      fireEvent.click(container.querySelector(".homepage"));
-      fireEvent.click(container.querySelector(".signup"));
+      fireEvent.click(screen.getByText("Jobly"));
+      fireEvent.click(screen.getByText("Sign Up"));
 
    expect(screen.getByText("Sign Up")).toBeInTheDocument();
    expect(screen.getByText("Username:")).toBeInTheDocument();
