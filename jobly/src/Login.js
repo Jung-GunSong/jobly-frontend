@@ -50,10 +50,11 @@ function Login({ loginUser }) {
         <div className="col"></div>
         <form className="Login col" onSubmit={handleSubmit}>
           <div className="mb-3">
-            <label className="form-label">
+            <label className="form-label" htmlFor="username">
               Username:
             </label>
             <input
+              id="username"
               name="username"
               value={loginData.name}
               onChange={handleChange}
@@ -61,10 +62,11 @@ function Login({ loginUser }) {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
+            <label className="form-label" htmlFor="password">
               Password:
             </label>
             <input
+              id="password"
               name="password"
               value={loginData.password}
               onChange={handleChange}
