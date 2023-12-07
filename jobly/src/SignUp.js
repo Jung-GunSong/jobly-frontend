@@ -57,21 +57,22 @@ function SignUp({ registerUser }) {
 
 
             <div className="mb-3">
-              <label className="form-label"
+              <label className="form-label" htmlFor="username"
               >Username:</label>
               <input
+                id="username"
                 name="username"
                 value={signUpData.username}
                 onChange={handleChange}
                 className="form-control"
-                id="usernameInput"
               />
             </div>
 
           <div className="mb-3">
-          <label className="form-label"
+          <label className="form-label" htmlFor="password"
               >Password:</label>
             <input
+              id="password"
               name="password"
               value={signUpData.password}
               onChange={handleChange}
@@ -80,9 +81,10 @@ function SignUp({ registerUser }) {
             />
           </div>
           <div className="mb-3">
-          <label className="form-label"
+          <label className="form-label" htmlFor="firstName"
               >First Name:</label>
             <input
+              id="firstName"
               name="firstName"
               value={signUpData.firstName}
               onChange={handleChange}
@@ -90,9 +92,10 @@ function SignUp({ registerUser }) {
             />
           </div>
           <div className="mb-3">
-          <label className="form-label"
+          <label className="form-label" htmlFor="lastName"
               >Last Name:</label>
             <input
+              id="lastName"
               name="lastName"
               value={signUpData.lastName}
               onChange={handleChange}
@@ -100,9 +103,10 @@ function SignUp({ registerUser }) {
             />
           </div>
           <div className="mb-3">
-          <label className="form-label"
+          <label className="form-label" htmlFor="email"
               >Email:</label>
             <input
+              id="email"
               name="email"
               value={signUpData.email}
               onChange={handleChange}
