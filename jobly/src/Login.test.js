@@ -3,6 +3,8 @@ import { fireEvent, render, screen, waitFor, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import Login from './Login';
 import { BrowserRouter } from 'react-router-dom';
+import JoblyApp from './JoblyApp';
+
 
 describe("Login Page", function () {
 
@@ -21,11 +23,11 @@ describe("Login Page", function () {
 
     expect(screen.getByText("Log In")).toBeInTheDocument();
     expect(screen.getByText("Username:")).toBeInTheDocument();
-    expect(screen.getByText("Password:")).toBeInTheDocument();
+    expect(screen.queryByText("First Name:")).not.toBeInTheDocument();
     expect(screen.queryByText("Sign Up")).not.toBeInTheDocument();
   });
 
-  it("calls passed in login function when login occurs", async function () {
+  it("uses passed in login function with no inputs", async function () {
 
     const loginMock = jest.fn();
     loginPageRender(loginMock);
@@ -38,7 +40,7 @@ describe("Login Page", function () {
 
   });
 
-  it("calls passed in login function with username and password", async function () {
+  it("calls passed in login function with valid inputs", async function () {
 
     const loginMock = jest.fn();
 
@@ -47,24 +49,53 @@ describe("Login Page", function () {
     const usernameInput = screen.getByLabelText("Username:");
     const passwordInput = screen.getByLabelText("Password:");
 
-      // eslint-disable-next-line testing-library/no-unnecessary-act
-      act( () => {
-        userEvent.type(usernameInput, "testadmin");
-        userEvent.type(passwordInput, "password");
-      })
+    // eslint-disable-next-line testing-library/no-unnecessary-act
+    act( () => {
+      userEvent.type(usernameInput, "testadmin");
+      userEvent.type(passwordInput, "password");
+    })
 
-      expect(usernameInput.value).toBe("testadmin");
-      expect(passwordInput.value).toBe("password");
+    expect(usernameInput.value).toBe("testadmin");
+    expect(passwordInput.value).toBe("password");
 
     const submitButton = screen.getByText("Submit");
 
-      fireEvent.submit(submitButton);
+    fireEvent.submit(submitButton);
 
     await waitFor(() => {
       expect(loginMock).toHaveBeenCalledTimes(1);
     });
 
   });
+
+  it ("completes login with correct user information", async function (){
+    render(
+     <JoblyApp>
+    </JoblyApp>
+      );
+
+      fireEvent.click(screen.getByRole("button", {name: "Login"}));
+
+      const usernameInput = screen.getByLabelText("Username:");
+      const passwordInput = screen.getByLabelText("Password:");
+
+      // eslint-disable-next-line testing-library/no-unnecessary-act
+      act( () => {
+        userEvent.type(usernameInput, "testadmin");
+        userEvent.type(passwordInput, "password");
+      })
+
+      const submitButton = screen.getByText("Submit");
+
+      fireEvent.submit(submitButton);
+
+      await waitFor(() => {
+        expect(screen.getByText("Welcome back testadmin!")).toBeInTheDocument();
+
+      });
+
+      expect(screen.queryByText("Login")).not.toBeInTheDocument();
+  })
 
 
 

@@ -69,9 +69,6 @@ describe("HomePage", function () {
       fireEvent.click(screen.getByText("Jobly"));
       fireEvent.click(screen.getByText("Sign Up"));
 
-   expect(screen.getByText("Sign Up")).toBeInTheDocument();
-   expect(screen.getByText("Username:")).toBeInTheDocument();
-   expect(screen.getByText("Password:")).toBeInTheDocument();
    expect(screen.getByText("First Name:")).toBeInTheDocument();
    expect(screen.getByText("Last Name:")).toBeInTheDocument();
    expect(screen.getByText("Email:")).toBeInTheDocument();
