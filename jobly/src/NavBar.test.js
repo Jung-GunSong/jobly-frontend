@@ -1,9 +1,11 @@
-import { fireEvent, render, screen, waitFor, act } from '@testing-library/react';
+import { fireEvent, render, screen} from '@testing-library/react';
 
-import userEvent from '@testing-library/user-event';
 import NavBar from './NavBar';
 import { BrowserRouter } from 'react-router-dom';
-import JoblyApp from './JoblyApp';
+import Login from './Login';
+import userContext from './userContext';
+import HomePage from './HomePage';
+import SignUp from './SignUp';
 
 describe("HomePage", function () {
 
@@ -31,5 +33,59 @@ describe("HomePage", function () {
     expect(screen.queryByText("Login")).not.toBeInTheDocument();
 
   })
+
+  it("takes user to login page when proper link is clicked", function (){
+
+    render(
+      <BrowserRouter>
+          <NavBar user={null} logOutUser={null} />
+          <Login loginUser={null}/>
+      </BrowserRouter>
+    )
+
+    fireEvent.click(screen.getByRole("link", {name:"Login"}));
+
+
+    expect(screen.getByText("Username:")).toBeInTheDocument();
+    expect(screen.queryByText("Sign Up")).not.toBeInTheDocument();
+
+  });
+
+  it("takes user to sign up page when proper link is clicked", function (){
+
+    render(
+      <BrowserRouter>
+          <NavBar user={null} logOutUser={null} />
+          <SignUp registerUser={null}/>
+      </BrowserRouter>
+    )
+
+    fireEvent.click(screen.getByRole("link",{name:"SignUp"}));
+
+
+    expect(screen.getByText("First Name:")).toBeInTheDocument();
+    expect(screen.queryByRole("button", {name:"Login"})).not.toBeInTheDocument();
+
+  });
+
+  it("takes user to non-user homepage when proper link is clicked", function (){
+
+    render(
+      <BrowserRouter>
+        <userContext.Provider value={{username:null}}>
+          <NavBar user={null} logOutUser={null} />
+          <HomePage />
+        </userContext.Provider>
+      </BrowserRouter>
+    )
+
+    fireEvent.click(screen.getByRole("link",{name:"Jobly"}));
+
+
+    expect(screen.getByRole("button", {name:"Login"})).toBeInTheDocument();
+    expect(screen.getByRole("button", {name:"Sign Up"})).toBeInTheDocument();
+    expect(screen.queryByRole("button", {name:"Submit"})).not.toBeInTheDocument();
+
+  });
 
 });
