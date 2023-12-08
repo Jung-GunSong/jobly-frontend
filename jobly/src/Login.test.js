@@ -3,7 +3,6 @@ import { fireEvent, render, screen, waitFor, act } from '@testing-library/react'
 import userEvent from '@testing-library/user-event';
 import Login from './Login';
 import { BrowserRouter } from 'react-router-dom';
-import JoblyApp from './JoblyApp';
 
 
 describe("Login Page", function () {
@@ -68,34 +67,36 @@ describe("Login Page", function () {
 
   });
 
-  it ("completes login with correct user information", async function (){
-    render(
-     <JoblyApp>
-    </JoblyApp>
-      );
+  // This test can be run only if backend server is also running
 
-      fireEvent.click(screen.getByRole("button", {name: "Login"}));
+  // it ("completes login with correct user information", async function (){
+  //   render(
+  //    <JoblyApp>
+  //   </JoblyApp>
+  //     );
 
-      const usernameInput = screen.getByLabelText("Username:");
-      const passwordInput = screen.getByLabelText("Password:");
+  //     fireEvent.click(screen.getByRole("button", {name: "Login"}));
 
-      // eslint-disable-next-line testing-library/no-unnecessary-act
-      act( () => {
-        userEvent.type(usernameInput, "testadmin");
-        userEvent.type(passwordInput, "password");
-      })
+  //     const usernameInput = screen.getByLabelText("Username:");
+  //     const passwordInput = screen.getByLabelText("Password:");
 
-      const submitButton = screen.getByText("Submit");
+  //     // eslint-disable-next-line testing-library/no-unnecessary-act
+  //     act( () => {
+  //       userEvent.type(usernameInput, "testadmin");
+  //       userEvent.type(passwordInput, "password");
+  //     })
 
-      fireEvent.submit(submitButton);
+  //     const submitButton = screen.getByText("Submit");
 
-      await waitFor(() => {
-        expect(screen.getByText("Welcome back testadmin!")).toBeInTheDocument();
+  //     fireEvent.submit(submitButton);
 
-      });
+  //     await waitFor(() => {
+  //       expect(screen.getByText("Welcome back testadmin!")).toBeInTheDocument();
 
-      expect(screen.queryByText("Login")).not.toBeInTheDocument();
-  })
+  //     });
+
+  //     expect(screen.queryByText("Login")).not.toBeInTheDocument();
+  // })
 
 
 
