@@ -28,10 +28,10 @@ function NavBar({ user, logOutUser }) {
           <NavLink to="/signup">SignUp</NavLink>
         </> :
         <>
-          <NavLink to="/jobs">Jobs</NavLink>
+          <NavLink to="/jobs">Opportunities</NavLink>
           <NavLink to="/companies">Companies</NavLink>
-          <NavLink to="/profile">Profile</NavLink>
-          <NavLink onClick={handleClick} to="/logout">Log out {user.username}</NavLink>
+          <NavLink to="/profile">User Profile</NavLink>
+          <NavLink onClick={handleClick} to="/logout">Sign Off {user.username}</NavLink>
         </>
       }
     </div>
