@@ -33,7 +33,7 @@ function CompaniesPage() {
     <>
       <h1>Companies</h1>
       <SearchBar searchFunc={searchCompanies} />
-      <div className="row">
+      <div className="mt-2 row">
         <div className="col-3"></div>
         <div className="col-6">
           {!currCompanies.isLoading
