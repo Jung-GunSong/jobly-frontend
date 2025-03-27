@@ -75,11 +75,11 @@ function Login({ loginUser }) {
             />
           </div>
           <button className="btn btn-primary">Submit</button>
+        </form>
+        <div className="col"></div>
           <p>For Guests:</p>
           <p> Username: Guest</p>
           <p> Password: Password</p>
-        </form>
-        <div className="col"></div>
       </div>
       {errors && <ErrorMessage errorMessages={errors} />}
     </div>
