@@ -77,8 +77,8 @@ function Login({ loginUser }) {
           <button className="btn btn-primary">Submit</button>
         </form>
         <div className="col"></div>
-        <div className="mt-5">
-          <h4>For Guests:</h4>
+        <div className="mt-4">
+          <h4 className="mt-2">For Guests:</h4>
           <p> Username: Guest</p>
           <p> Password: Password</p>
         </div>
