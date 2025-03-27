@@ -77,9 +77,11 @@ function Login({ loginUser }) {
           <button className="btn btn-primary">Submit</button>
         </form>
         <div className="col"></div>
-          <p>For Guests:</p>
+        <div className="mt-5">
+          <h4>For Guests:</h4>
           <p> Username: Guest</p>
           <p> Password: Password</p>
+        </div>
       </div>
       {errors && <ErrorMessage errorMessages={errors} />}
     </div>
